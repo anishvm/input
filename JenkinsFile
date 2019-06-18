@@ -3,17 +3,12 @@ stage('Choose environment') {
   userInput = input(id: 'userInput',    
                     message: 'Choose an environment',    
                     parameters: [
-                      [$class:                 'ChoiceParameterDefinition', choices: "Dev\nQA\nProd", name: 'Env']
+                      [$class:'ChoiceParameterDefinition', choices: "Dev\nQA\nProd", name: 'Env']
                            ]  
   )
 }
 stage('Deploy code'){
-  node('deploy'){
-    if (userInput.Env == "Dev") {
-      // deploy dev stuff
-    } else if (userInput.Env == "QA"){
-      // deploy qa stuff
-    } else {
-      // deploy prod stuff
+  steps{
+   sh "echo $userinput.Env"
   }
 }
