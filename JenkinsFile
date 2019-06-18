@@ -1,3 +1,6 @@
+pipeline{
+	agent{ 
+
 userInput = ""
 stage('Choose environment') {
   userInput = input(id: 'userInput',    
@@ -11,4 +14,6 @@ stage('Deploy code'){
   steps{
    sh "echo $userinput.Env"
   }
+}
+}
 }
