@@ -1,19 +1,13 @@
 pipeline{
-	agent{ 
-
-userInput = ""
-stage('Choose environment') {
-  userInput = input(id: 'userInput',    
-                    message: 'Choose an environment',    
-                    parameters: [
-                      [$class:'ChoiceParameterDefinition', choices: "Dev\nQA\nProd", name: 'Env']
-                           ]  
-  )
-}
-stage('Deploy code'){
-  steps{
-   sh "echo $userinput.Env"
-  }
-}
-}
+ agent any
+ userInput = ""
+ stage('Choose environment') {
+   userInput = input(id: 'userInput',message: 'Choose an environment',    
+                    parameters: [[$class:'ChoiceParameterDefinition', choices: "Dev\nQA\nProd", name: 'Env'])
+ }
+ stage('Deploy code'){
+   steps{
+     sh "echo $userinput.Env"
+   }
+ }
 }
