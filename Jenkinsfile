@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Change Endpoint') {
       steps {
-        input(message: 'Enter endpoint', id: 'ep', ok: 'ok', submitter: 'ep')
+        input id: 'Ep', message: 'enter ep', ok: 'ok', parameters: [string(defaultValue: '', description: '', name: 'endpoint', trim: true)]
       }
     }
   }
