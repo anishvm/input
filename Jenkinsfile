@@ -5,7 +5,7 @@ pipeline {
     stage('build') {
       steps {
         input(id: 'userinput', message: 'enter ep', ok: 'ok', parameters: [string(defaultValue: '', description: '', name: 'endpoint')])
-        sh 'echo $endpoint'
+        echo $endpoint
       }
     }
   }
