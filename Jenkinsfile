@@ -8,7 +8,7 @@ pipeline {
     }
     stage('build') {
       steps {
-        sh 'echo ${endpoint}'
+        sh 'echo \\${endpoint}'
       }
     }
   }
