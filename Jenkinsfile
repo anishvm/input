@@ -8,7 +8,7 @@ pipeline {
     }
     stage('build') {
       steps {
-        sh 'echo \'$userinput\''
+        sh 'echo env.$userinput'
       }
     }
   }
