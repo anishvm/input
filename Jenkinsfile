@@ -1,9 +1,4 @@
 pipeline {
-  def userinput =  timeout(time:60, unit:'SECONDS') {input(
-     id: 'userinput', message: 'URL Required', parameters: [
-     [$class: 'TextParameterDefinition', defaultValue: '', description: 'URL', name: 'url'],
-    ])
-  }
   agent any
   stages {
     stage('Change Endpoint') {
@@ -13,7 +8,7 @@ pipeline {
     }
     stage('build') {
       steps {
-        sh "echo userinput"
+        sh "echo '$userinput'"
       }
     }
   }
