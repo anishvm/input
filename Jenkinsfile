@@ -8,7 +8,7 @@ pipeline {
     }
     stage('build') {
       steps {
-        sh 'echo "${Ep}"'
+        sh 'echo Ep'
       }
     }
   }
